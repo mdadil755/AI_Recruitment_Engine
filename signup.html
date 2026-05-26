@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Recruitment - Create Account</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&display=swap');
+
+        :root{
+            --neon:#00f2ff;
+            --bg:#050505;
+        }
+        html, body {
+            margin: 0;
+            background: #050505;
+}
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        body{
+            font-family:'Rajdhani', sans-serif;
+            background: radial-gradient(ellipse at 30% 20%, #0a1a2e 0%, #050505 60%);
+            min-height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            color:#fff;
+            padding:20px;
+        }
+
+        body::before{
+            content:'';
+            position:fixed;
+            inset:0;
+            background-image:
+                linear-gradient(rgba(0,242,255,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0,242,255,0.03) 1px, transparent 1px);
+            background-size:50px 50px;
+            pointer-events:none;
+        }
+
+        .card{
+            width:420px;
+            background:rgba(10,10,10,0.96);
+            border:1px solid rgba(0,242,255,0.18);
+            border-radius:22px;
+            padding:38px;
+            box-shadow:0 0 40px rgba(0,242,255,0.06);
+            position:relative;
+            z-index:1;
+        }
+        .card:hover {
+            border-color: var(--neon);
+}
+
+        h1{
+            text-align:center;
+            color:var(--neon);
+            font-size:2rem;
+            letter-spacing:3px;
+            margin-bottom:10px;
+            text-transform:uppercase;
+        }
+
+        .sub{
+            text-align:center;
+            color:rgba(255,255,255,0.45);
+            margin-bottom:30px;
+            font-size:.95rem;
+        }
+
+        .input-group{
+            margin-bottom:18px;
+        }
+
+        label{
+            display:block;
+            margin-bottom:8px;
+            color:#00d2ff;
+            font-weight:700;
+            letter-spacing:1px;
+            font-size:.85rem;
+        }
+
+        input{
+            width:100%;
+            padding:14px;
+            border-radius:10px;
+            border:1px solid #333;
+            background:#111;
+            color:#fff;
+            font-family:'Rajdhani', sans-serif;
+            font-size:1rem;
+            outline:none;
+        }
+
+        input:focus{
+            border-color:var(--neon);
+            box-shadow:0 0 10px rgba(0,242,255,0.2);
+        }
+
+        .btn{
+            width:100%;
+            padding:15px;
+            border:none;
+            border-radius:12px;
+            background:var(--neon);
+            color:#000;
+            font-weight:800;
+            font-size:1rem;
+            cursor:pointer;
+            letter-spacing:2px;
+            margin-top:10px;
+            text-transform:uppercase;
+            font-family: 'Rajdhani', sans-serif;
+        }
+
+        .btn:hover{
+            box-shadow:0 0 18px rgba(0,242,255,0.35);
+        }
+
+        .error{
+            background:rgba(255,49,49,0.08);
+            border:1px solid rgba(255,49,49,0.25);
+            color:#ff6b6b;
+            padding:12px;
+            border-radius:10px;
+            margin-bottom:18px;
+            font-size:.9rem;
+        }
+
+        .bottom{
+            margin-top:22px;
+            text-align:center;
+            font-size:.9rem;
+            color:rgba(255,255,255,0.5);
+        }
+
+        .bottom a{
+            color:var(--neon);
+            text-decoration:none;
+            font-weight:700;
+        }
+
+        .bottom a:hover{
+            text-decoration:underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h1>Create Account</h1>
+        <div class="sub">Register to access AI Recruitment Dashboard</div>
+
+        {% if error %}
+        <div class="error">{{ error }}</div>
+        {% endif %}
+
+        <form action="/signup_action" method="POST">
+
+            <div class="input-group">
+                <label>FULL NAME</label>
+                <input type="text" name="name" placeholder="Enter full name" required>
+            </div>
+
+            <div class="input-group">
+                <label>EMAIL ADDRESS</label>
+                <input type="email" name="email" placeholder="Enter email" required>
+            </div>
+
+            <div class="input-group">
+                <label>PASSWORD</label>
+                <input type="password" name="password" placeholder="Create password" required>
+            </div>
+
+            <button type="submit" class="btn">Create Account</button>
+
+        </form>
+
+        <div class="bottom">
+            Already have an account?
+            <a href="/">Login Here</a>
+        </div>
+    </div>
+
+</body>
+</html>
